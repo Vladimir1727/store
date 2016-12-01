@@ -82,13 +82,12 @@ $sale='create table sales(
 	pricesale int,
 	datesale date
 	)default charset=utf8';
-$pdo->query($roles);
-$pdo->query($customer);
-$pdo->query($cat);
-$pdo->query($sub);
-$pdo->query($item);
-$pdo->query($sale);
-$pdo->query($cart);
-$pdo->query($order);
-$pdo->query($sale);
-$pdo->query($image);
+//$pdo->query($roles);
+//$pdo->query($customer);
+//$pdo->query($cat);
+//$pdo->query($sub);
+//$pdo->query($item);
+//$pdo->query($cart);
+//$pdo->query($order);
+//$pdo->query($sale);
+//$pdo->query($image);

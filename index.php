@@ -1,6 +1,8 @@
 <?php
 session_start();
-include_once ("pages/classes.php"); 
+include_once ("pages/classes.php");
+Tools::SetParam('localhost','root','123456','shop');
+$pdo=Tools::connect();
 if(isset($_GET['page'])){
 	$page=$_GET['page'];
 	}
@@ -12,7 +14,7 @@ if(isset($_GET['page'])){
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Купи-Купи интернет-магазин</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<!-- <link rel="stylesheet" href="css/style.css">  -->
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
 	<link rel="stylesheet/less" href="css/style.less">
 </head>
 <body>
@@ -52,8 +54,10 @@ else include_once("pages/main.php");
 	
 </footer>
 <script src="js/jquery-2.0.0.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/less.min.js"></script>
+<script src="js/ajax.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
