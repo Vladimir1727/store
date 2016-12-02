@@ -36,7 +36,10 @@ $('#pricesale').show_err();
 $('#info').show_err();
 $('#add_item').try_add([$('#itemname'),$('#pricein'),$('#pricesale'),$('#info'),$('#sel_cat2'),$('#subid'),$('#itempic')]);
 //вкладка картинки
-
 $('#addpics').try_add([$('#sel_cat3'),$('#subid2'),$('#itemlist'),$('#files')]);
-
+//регистрация
+$('#pass1').show_err();
+$('#pass2').show_err();
+$('#login').show_err();
+$('#adduser').try_add([$('#pass1'),$('#pass2'),$('#login'),$('#file_pic')]);
 })})(jQuery)

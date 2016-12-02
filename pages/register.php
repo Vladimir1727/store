@@ -11,7 +11,7 @@ if (isset($_REQUEST['adduser'])) {
 		move_uploaded_file($_FILES['avatar']['tmp_name'],'img/'.$_FILES['avatar']['name']);
 	$path='img/'.$_FILES['avatar']['name'];
 	}
-	echo 'pass='.$pass;
+	echo 'Пользователь зарегестрирован';
 	$customer=new Customer($login,$pass,$path);
 	$customer->IntoDb();
 }
@@ -31,11 +31,7 @@ else{
 		<label for="pass2">Подтверждение пароля</label>
 		<input type="password" id="pass2" class="form-control"  name="pass2">
 	</div>
-	<!-- <div class="form-group">
-		<label for="email">E-mail</label>
-		<input type="email" id="email" class="form-control" name="email">
-	</div> -->
-	<input type="file" name="avatar" class="form-control">
+	<input type="file" name="avatar" class="form-control" id="file_pic">
 	<input type="submit" class="btn btn-default" name="adduser" id="adduser" value="Зарегестрироваться">
 </form>
 
