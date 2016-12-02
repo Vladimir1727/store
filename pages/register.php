@@ -36,7 +36,7 @@ else{
 		<input type="email" id="email" class="form-control" name="email">
 	</div> -->
 	<input type="file" name="avatar" class="form-control">
-	<input type="submit" class="btn" name="adduser" id="adduser">
+	<input type="submit" class="btn btn-default" name="adduser" id="adduser" value="Зарегестрироваться">
 </form>
 
 <?php
