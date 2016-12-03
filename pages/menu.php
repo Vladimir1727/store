@@ -40,10 +40,10 @@
         
        	<form class="navbar-form navbar-left">
       		<div class="form-group">
-        		<input type="text" class="form-control" placeholder="логин...">
-        		<input type="pass" class="form-control" placeholder="пароль...">
+        		<input type="text" class="form-control" placeholder="логин..." id="login0">
+        		<input type="pass" class="form-control" placeholder="пароль..." id="pass0">
       		</div>
-      		<button type="submit" class="btn btn-default">
+      		<button type="submit" class="btn btn-default" id="enter">
       			<span class="glyphicon glyphicon-log-in"></span>
       		Войти
       		</button>

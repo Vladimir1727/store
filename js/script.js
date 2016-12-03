@@ -14,16 +14,18 @@ var test=this;
 $.fn.try_add=function(arr){//функция проверки на пустые поля при нажатии кнопки
 var butt=this;
 	butt.click(function(){
-		for (var i = arr.length - 1; i >= 0; i--) {
+		var f=true;
+		for (var i = arr.length - 1; i >= 0; i--){
 			test=$("#"+arr[i]);
+			if (test.val().length>0) test.val(test.val().trim());
 			if (test.val().trim().length<1 || test.val().trim()=="0"){
 				test.css({"border":"1px red solid"})
-				console.log('error');
-				return false;
+				f=false;
 			}
 			else test.css({"border":"1px #ccc solid"});
 		}
-	return true;
+	if (f==true) return true;
+	return false;
 	});
 }
 
@@ -36,4 +38,5 @@ $('#add_item').try_add(['itemname','pricein','pricesale','info','sel_cat2','subi
 $('#addpics').try_add(['sel_cat3','subid2','itemlist','files']);
 //регистрация
 $('#adduser').try_add(['pass1','pass2','login','file_pic']);
+$('#enter').try_add(['login0','pass0']);
 })})(jQuery)

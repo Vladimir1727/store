@@ -66,7 +66,9 @@
 				}
 				?>
 	    </select>
-	    <select name="subid" id="subid"></select>
+	    <select name="subid" id="subid">
+	    	<option value=0>Выберите подкатегорию</option>
+	    </select>
 	    </div>
 	    <div class="input-group">
 	    	<label for="itemname" class="input-group-addon">Наименование</label>
@@ -120,8 +122,12 @@
 					}
 				?>
 	    	</select>
-	    	<select name="subid" id="subid2" onchange="showitem(this.value)"></select>
-			<select name="itemlist" id="itemlist"></select>
+	    	<select name="subid" id="subid2" onchange="showitem(this.value)">
+	    		<option value=0>Выберите подкатегорию</option>
+	    	</select>
+			<select name="itemlist" id="itemlist">
+				<option value=0>выберите товар</option>
+			</select>
 		</div>
 		<div class="input-group">
 			<input type="file" name="file[]" multiple accept="image/*" class="form-control"  id="files">

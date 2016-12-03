@@ -87,4 +87,63 @@ class Item{
 			'action'=>$this->action);
 		$ps->execute($data);
 	}
+	static function fromDb($id){
+		$item=null;
+		try{
+			$pdo=Tools::connect();
+			$ps=$pdo->prepare('select * from Items where id=?');
+			$ps->execute(array($id));
+			$row=$ps->fetch();
+			$data=array('id'=>$row['id'],
+				'itemname'=>$row['itemname'],
+				'catid'=>$row['catid'],
+				'subid'=>$row['subid'],
+				'pricein'=>$row['pricein'],
+				'pricesale'=>$row['pricesale'],
+				'info'=>$row['info'],
+				'rate'=>$row['rate'],
+				'imagepath'=>$row['imagepath'],
+				'action'=>$row['action']);
+			$item=new Item($data);
+			return $item;
+		}
+		catch(PDOException $e){
+			echo $e->getMessage();
+			return false;
+		}
+	}
+
+	function Draw(){
+		echo '<div class="col-sm-2" style="height:250px;border:1px #ddd solid">';
+		echo '<h4 style="color:blue;font-size:16pt;text-align:center">'.$this->itemname.'</h4>';
+		echo '<div><img src="'.$this->imagepath.'" height="100px"><span class="pull-right" style="color:red;font-size:16pt">'.$this->pricesale.'грн.</span></div>';
+		echo '<div style="background-color:lightyellow;color:darkgreen;overflow:hidden;height:50px">'.$this->info.'</div>';
+		echo '<div><input class="btn btn-success" name="cart'.$this->id.'" type="submit" value="в корзину"><a href="pages/iteminfo.php?item='.$this->id.'" class="pull-right btn btn-warning">Инфо</a>
+			
+			</div>';
+		echo '</div>';
+	}
+
+	static function GetItems(){
+		$pdo=Tools::connect();
+		$ps=$pdo->prepare('select * from items');
+		$items=array();
+		$ps->execute();
+		while($row=$ps->fetch()){
+			$data=array('id'=>$row['id'],
+				'itemname'=>$row['itemname'],
+				'catid'=>$row['catid'],
+				'subid'=>$row['subid'],
+				'pricein'=>$row['pricein'],
+				'pricesale'=>$row['pricesale'],
+				'info'=>$row['info'],
+				'rate'=>$row['rate'],
+				'imagepath'=>$row['imagepath'],
+				'action'=>$row['action']);
+			$i=new Item($data);
+			$items[]=$i;
+		}
+		return $items;
+
+	}
 }

@@ -1,13 +1,11 @@
-корзина
 <?php
-$data=array('itemname'=>'телевизор 1',
-			'catid'=>1,
-			'subid'=>1,
-			'pricein'=>1000,
-			'pricesale'=>1500,
-			'info'=>'маленький телевизор',
-			'rate'=>0,
-			'imagepath'=>'images/1.jpg',
-			'action'=>0);
-$i=new Item($data);
-$i->IntoDb();
+echo '<div class="row">';
+foreach ($_COOKIE as $k => $v) {
+	if(substr($k,0,4)=='cart'){
+		$iid=substr($k,4);
+		$item=item::fromDb($iid);
+		$item->Draw();
+	}
+}
+echo '</div>';
+ ?>
