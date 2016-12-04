@@ -114,10 +114,10 @@ class Item{
 	}
 
 	function Draw(){
-		echo '<div class="col-sm-2" style="height:250px;border:1px #ddd solid">';
-		echo '<h4 style="color:blue;font-size:16pt;text-align:center">'.$this->itemname.'</h4>';
-		echo '<div><img src="'.$this->imagepath.'" height="100px"><span class="pull-right" style="color:red;font-size:16pt">'.$this->pricesale.'грн.</span></div>';
-		echo '<div style="background-color:lightyellow;color:darkgreen;overflow:hidden;height:50px">'.$this->info.'</div>';
+		echo '<div class="col-sm-2" style="height:250px;border:1px #ddd solid;padding 5px;box-sizing:border-box">';
+		echo '<h5 style="color:blue;font-size:9pt;text-align:center;display:block;height:40px;font-weight:800">'.$this->itemname.'</h5>';
+		echo '<div style="height:100px"><img src="'.$this->imagepath.'" style="max-height:100px;max-width:80px"><span class="pull-right" style="color:red;font-size:14pt">'.$this->pricesale.'грн.</span></div>';
+		echo '<div style="background-color:lightyellow;color:darkgreen;overflow:hidden;height:50px;font-size:8pt">'.$this->info.'</div>';
 		echo '<div><input class="btn btn-success" name="cart'.$this->id.'" type="submit" value="в корзину"><a href="pages/iteminfo.php?item='.$this->id.'" class="pull-right btn btn-warning">Инфо</a>
 			
 			</div>';
