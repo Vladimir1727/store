@@ -6,7 +6,7 @@ $pdo=Tools::connect();
 $ps=$pdo->prepare('select * from subcategories
 	where catid=?');
 $ps->execute(array($cat));
-echo '<select name="subid" id="subid">';
+echo '<select name="subid" id="subid"  class="form-control">';
 while ($row=$ps->fetch()){
 	echo '<option value="'.$row['id'].'">'.$row['subcategory'].'</option>';
 }
