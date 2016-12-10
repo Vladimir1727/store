@@ -124,11 +124,19 @@ class Item{
 		echo '</div>';
 	}
 
-	static function GetItems(){
+	static function GetItems($sid=0){
 		$pdo=Tools::connect();
-		$ps=$pdo->prepare('select * from items');
+		$ps='';
+		if ($sid==0){
+			$ps=$pdo->prepare('select * from items');
+			$ps->execute();
+		}
+		else{
+			$ps=$pdo->prepare('select * from items where subid=?');
+			$ps->execute(array($sid));
+		}
 		$items=array();
-		$ps->execute();
+		
 		while($row=$ps->fetch()){
 			$data=array('id'=>$row['id'],
 				'itemname'=>$row['itemname'],

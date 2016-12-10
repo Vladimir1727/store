@@ -39,4 +39,7 @@ $('#addpics').try_add(['sel_cat3','subid2','itemlist','files']);
 //регистрация
 $('#adduser').try_add(['pass1','pass2','login','file_pic']);
 $('#enter').try_add(['login0','pass0']);
+
+//document.location='index.php?page=1&min='+min+'&max='+max;
+
 })})(jQuery)

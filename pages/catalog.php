@@ -19,8 +19,20 @@
 		echo '</select>';*/
 		include_once('pages/lists.html');
 		echo '<div class=row>';
-		$items=Item::GetItems();
+		$items=array();
+		if (isset($_GET['sid'])){
+			$items=Item::GetItems($_GET['sid']);
+		}
+		else{
+			$items=Item::GetItems();
+		}
+		if(isset($GET['min']),$_GET['max']){
+			$min=$GET['min'];
+			$max=$GET['max'];
+		}
 		foreach ($items as $i) {
+			if(isset($GET['min']),$_GET['max'])
+			if ($i->GetPrice()<$min || $i->GetPrice()>$max) continue;
 			$i->Draw();
 		}
 		echo '</div></form>';
@@ -47,3 +59,21 @@ foreach ($_REQUEST as $k => $v)
 
 
  ?>
+<script type="text/javascript">
+	function getsubid(sid){
+		document.location="index.php?page=2&sid="+sid;
+			/*if (sub==""){
+
+			document.getElementById('result').innerHTML="";
+			return;
+		}
+		if (window.XMLHttpRequest) ae=new XMLHttpRequest();
+		else ae=new ActiveXObject('Microsoft.XMLHTTP');
+		ae.onreadystatechange=function(){
+			if (ae.readyState==4 && ae.status==200)
+				document.getElementById('result').innerHTML=ae.responseText;
+		}
+		ae.open('get','pages/lists.php?sub='+sub,true);
+		ae.send(null);*/
+	}
+</script>
