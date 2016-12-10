@@ -144,6 +144,44 @@ class Item{
 			$items[]=$i;
 		}
 		return $items;
-
+	}
+	function DrawCart(){
+		echo '<div class="col-md-12">';
+		echo '<img src="'.$this->imagepath.'" width="70px">';
+		echo '<span style="">'.$this->itemname.'</span>';
+		echo '<span style="">'.$this->pricesale.'</span>';
+		$reguser='';
+		if(!isset($_SESSION['reg']) || $_SESSION['reg']==''){
+			$reguser='cart_'.$this->id;
+		}
+		else{
+			$reguser=$_SESSION['reg'].'_'.$this->id;
+		}
+		echo '<button class="btn btn-danger btn-sm"
+			 onclick=deleteCookie("'.$reguser.'")>X</button>';
+		echo '</div>';
+	}
+	function GetPrice(){
+		return $this->pricesale;
+	}
+	function Sale(){
+		try{
+			$pdo=Tools::connect();
+			if(isset($_SESSION['reg']) && $_SESSION['reg']!=''){
+				$reguser=$_SESSION['reg'];
+			}
+			//увеличение поля total для таблички customers
+			$rq1='update customers set total=total+? where login=?';
+			$ps1=$pdo->prepare($rq1);
+			$ps1->execute(array($this->pricesale,$reguser));
+			$rq2='insert into sales(customername,itemname,pricein,pricesale,datesale) values(?,?,?,?,?)';
+			$ps2=$pdo->prepare($rq2);
+			$ps2->execute(array($reguser,$this->itemname,$this->pricein,$this->pricesale,@date('Y/m/d H:i:s')));
+		}
+		catch(PDOException $e){
+			echo $e->getMessage();
+			//$_SESSION['err']=$e->getMessage();
+			return false;
+		}
 	}
 }

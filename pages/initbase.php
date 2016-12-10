@@ -5,11 +5,11 @@ $pdo=Tools::connect();
 //роли
 $ins=$pdo->query('insert into roles(role) values ("Admin"),("User"),("Boss")');
 //пользователи
-$ins=$pdo->query('insert into customers(login,pass,roleid,imagepath) values 
-	("admin","admin",1,"pics/admin.jpg"),
-	("Vova","162616",2,"pics/vova.jpg"),
-	("Vasya","123456",2,"pics/vasya.jpg"),
-	("Boss","1111",3,"pics/boss.jpg")
+$ins=$pdo->query('insert into customers(login,pass,roleid,imagepath,total) values 
+	("admin","admin",1,"pics/admin.jpg",0),
+	("Vova","162616",2,"pics/vova.jpg",0),
+	("Vasya","123456",2,"pics/vasya.jpg",0),
+	("Boss","1111",3,"pics/boss.jpg",0)
 	');
 //категории
 $ins=$pdo->query('insert into categories(category) values 

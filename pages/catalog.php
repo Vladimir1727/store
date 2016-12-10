@@ -24,14 +24,23 @@
 			$i->Draw();
 		}
 		echo '</div></form>';
-		 ?>
+		
+$reguser='';
+if (!isset($_SESSION['reg']) || $_SESSION['reg']=='') 
+{
+	$reguser='cart';
+}
+else
+{
+	$reguser=$_SESSION['reg'];
+}
 
-<?php 
-foreach ($_REQUEST as $k => $v) {
-	if(substr($k,0,4)=='cart'){
+foreach ($_REQUEST as $k => $v) 
+{
+	if (substr($k,0,4) =='cart') 	
+	{
 		$iid=substr($k,4);
-		echo '<script>
-		document.cookie="cart'.$iid.'='.$iid.'";</script>';
+		echo '<script>document.cookie="'.$reguser.'_'.$iid.'='.$iid.'";</script>';
 	}
 }
  
