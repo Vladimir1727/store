@@ -105,6 +105,9 @@
     			);
 			$newitem = new Item($idata);
 			$newitem->intoDB();
+			//убираем дабл постинг
+			//header("Location: ".$_SERVER['REQUEST_URI']);
+			echo "<script>document.location='index.php?page=5'</script>";
 		}
     	 ?>
   </div>

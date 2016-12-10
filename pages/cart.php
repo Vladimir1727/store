@@ -21,7 +21,7 @@ $reguser='';
                }
             }
 echo '<div class="col-md-12"><h2>'.$total.'</h2>';
-echo '<button type="submit" name ="subbuy" class="btn btn-success">Купить</button>';
+echo '<button type="submit" name ="subbuy" class="btn btn-success" onmousedown=deleteCookie("'.$reguser.'")>Купить</button>';
 echo '</div></div></form>';
 if (isset($_POST['subbuy'])){
 	foreach ($_COOKIE as $k => $v) {
@@ -36,9 +36,20 @@ if (isset($_POST['subbuy'])){
 		}
 	}
 }
- echo '<h1>'.$_SESSION['err'].'</h1>';
-echo '<h1>'.$_SESSION['reg'].'</h1>';
-
-
+//echo '<h1>'.$_SESSION['err'].'</h1>';
+//echo '<h1>'.$_SESSION['reg'].'</h1>';
 
 ?>
+<script>
+	function deleteCookie(rname){
+		var cookies=document.cookie.split(';');
+		for (var i = 1; i <= cookies.length; i++){
+			cookies[i-1]=cookies[i-1].trim();
+			if (cookies[i-1].indexOf(rname)===0){
+				var cookie=cookies[i-1].split('=');
+				var d=new Date(new Date().getTime()-100);
+				document.cookie=cookie[0]+"="+"0"+";path=/store;expires="+d.toUTCString();
+			}
+		}
+	}
+</script>
