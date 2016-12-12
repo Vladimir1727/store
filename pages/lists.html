@@ -2,6 +2,7 @@
 
 <!-- <form> -->
 	<select name="catid" id="catid" onchange="getsub(this.value)" class="form-control">
+	<option value="0">выберите категорию</option>
 		<?php
 		$pdo=Tools::connect();
 		$ps=$pdo->prepare('select * from categories');

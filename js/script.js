@@ -40,6 +40,35 @@ $('#addpics').try_add(['sel_cat3','subid2','itemlist','files']);
 $('#adduser').try_add(['pass1','pass2','login','file_pic']);
 $('#enter').try_add(['login0','pass0']);
 
+var max=parseInt($("#smax").text());
+var min=parseInt($("#smin").text());
+var bdmin=parseInt($("#bdmin").text());
+var bdmax=parseInt($("#bdmax").text());
+console.log(min,max,bdmin,bdmax);
+$( "#slider" ).slider({
+	range: true,
+	step:10,
+	min:0,
+	max:100000
+});
+$("#slider").slider( "option", "min", bdmin );
+$("#slider").slider( "option", "max", bdmax );
+$("#slider").slider( "values", [ min, max ] );
+//$("#slider").slider( "option", "min",  );
+
+//if ($('#smax').text()=='') $('#smax').text($("#slider").slider( "option", "max" ));
+//if ($('#smin').text()=='') $('#smin').text($("#slider").slider( "option", "min" ));
+$( "#slider" ).slider({
+  change: function( event, ui ) {
+  	$('#smin').text(ui.values[0]);
+  	$('#smax').text(ui.values[1]);
+  }
+});
+
+$('#showminmax').click(function(){
+	document.location='index.php?page=2&min='+$('#smin').text()+'&max='+$('#smax').text();
+	return false;
+});
 //document.location='index.php?page=1&min='+min+'&max='+max;
 
 })})(jQuery)

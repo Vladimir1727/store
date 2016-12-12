@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['reg']="Vova";
+//$_SESSION['reg']="Vova";
 include_once ("pages/classes.php");
 Tools::SetParam('localhost','root','123456','shop');
 $pdo=Tools::connect();
