@@ -69,6 +69,12 @@ $('#showminmax').click(function(){
 	document.location='index.php?page=2&min='+$('#smin').text()+'&max='+$('#smax').text();
 	return false;
 });
-//document.location='index.php?page=1&min='+min+'&max='+max;
+
+/*$('#show_feed').click(function(){
+	$('#feedback').toggle();
+	$('#iteminfo').toggle();
+	return false;
+});*/
+
 
 })})(jQuery)

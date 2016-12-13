@@ -20,7 +20,7 @@ $reguser='';
                     $total+=$item->getPrice();
                }
             }
-echo '<div class="col-md-12"><h2>'.$total.'</h2>';
+echo '<div class="col-md-12"><h2>Итого: '.$total.' грн.</h2>';
 echo '<button type="submit" name ="subbuy" class="btn btn-success" onmousedown=deleteCookie("'.$reguser.'")>Купить</button>';
 echo '</div></div></form>';
 if (isset($_POST['subbuy'])){

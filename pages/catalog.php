@@ -1,7 +1,8 @@
-<form action="index.php?page=2" method="post">
-		<?php 
-		
-
+<?php 
+		$issid='';
+		if (isset($_GET['sid'])) $issid='&sid='.$_GET['sid'];
+		echo '<form action="index.php?page=2'.$issid.'" method="post">';
+		//фильтр по мин/макс
 		echo "<h3>выберите диапазон:</h3>";
 		echo '<div id="slider"></div>';
 		$ps=$pdo->query('select MAX(pricesale) from items');
@@ -21,7 +22,7 @@
 			$max=$bdmax;
 		}
 		echo '<p class="hide">Все товары от: <span id="bdmin">'.$bdmin.'</span> до: <span id="bdmax">'.$bdmax.'</span></p>';
-		echo '<button id="showminmax" class="btn btn-default">Показать от: <span id="smin">'.$min.'</span> до <span id="smax">'.$max.' грн.</span></button>';
+		echo '<div>Выбран диапазон от: <span id="smin">'.$min.'</span> до <span id="smax">'.$max.'</span> грн.</div>';
 		include_once('pages/lists.html');
 		echo '<div class=row>';
 		$items=array();
@@ -62,6 +63,9 @@ foreach ($_REQUEST as $k => $v)
  ?>
 <script type="text/javascript">
 	function getsubid(sid){
-		document.location="index.php?page=2&sid="+sid;
+		var min=document.getElementById('smin').innerHTML;
+		var max=document.getElementById('smax').innerHTML;
+		console.log('min='+min+"_max="+max);
+		document.location="index.php?page=2&sid="+sid+'&min='+min+'&max='+max;
 	}
 </script>

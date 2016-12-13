@@ -154,7 +154,7 @@ class Item{
 		return $items;
 	}
 	function DrawCart(){
-		echo '<div class="col-md-12">';
+		echo '<div class="col-md-12 cart">';
 		echo '<img src="'.$this->imagepath.'" width="70px">';
 		echo '<span style="">'.$this->itemname.'</span>';
 		echo '<span style="">'.$this->pricesale.'</span>';

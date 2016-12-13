@@ -10,7 +10,7 @@ $enterform='<form class="navbar-form navbar-left" method="post" action="index.ph
       	</button>
 </form>';
 if (isset($_SESSION['reg'])){
-	echo 'Вы вошли как '.$_SESSION['reg'];
+	echo '<span id="enter_name">Привет, <strong>'.$_SESSION['reg'].'<strong></span>';
 	echo '<form class="navbar-form navbar-left" method="post" action="index.php">
 			<button  class="btn btn-default" id="exit" name="exit" type="submit">Выйти</button>
 			</form>';
