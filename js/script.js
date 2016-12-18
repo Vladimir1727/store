@@ -1,15 +1,8 @@
 (function($){$(function(){
 
-$("#tabs").tabs();
 
-/*$.fn.show_err=function(){//функция подсветки пустых полей
-var test=this;
-	test.blur(function(){
-		test.val(test.val().trim());
-		if (test.val().trim().length<1)	test.css({"border":"1px red solid"})
-		else test.css({"border":"1px #ccc solid"});	
-	});
-}*/
+
+$("#tabs").tabs();
 
 $.fn.try_add=function(arr){//функция проверки на пустые поля при нажатии кнопки
 var butt=this;
@@ -54,10 +47,7 @@ $( "#slider" ).slider({
 $("#slider").slider( "option", "min", bdmin );
 $("#slider").slider( "option", "max", bdmax );
 $("#slider").slider( "values", [ min, max ] );
-//$("#slider").slider( "option", "min",  );
 
-//if ($('#smax').text()=='') $('#smax').text($("#slider").slider( "option", "max" ));
-//if ($('#smin').text()=='') $('#smin').text($("#slider").slider( "option", "min" ));
 $( "#slider" ).slider({
   change: function( event, ui ) {
   	$('#smin').text(ui.values[0]);
@@ -69,12 +59,5 @@ $('#showminmax').click(function(){
 	document.location='index.php?page=2&min='+$('#smin').text()+'&max='+$('#smax').text();
 	return false;
 });
-
-/*$('#show_feed').click(function(){
-	$('#feedback').toggle();
-	$('#iteminfo').toggle();
-	return false;
-});*/
-
 
 })})(jQuery)

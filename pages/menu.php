@@ -28,13 +28,14 @@
 	         		<span class="glyphicon glyphicon-user"></span>
 	         		Регистрация 
 	         	</a>
-        		</li>	
-				<li <?php echo ($page==5)? "class='active'":"" ?>>
-					<a href="index.php?page=5">
-						<span class="glyphicon glyphicon-wrench"></span>
-						Админ
-					</a>
-				</li>
+				<?php
+		         	if ($_SESSION['reg']=="admin"){
+		         	echo "</li><li";
+					echo ($page==5)? "class='active'":"";
+					echo "><a href='index.php?page=5'><span class='glyphicon glyphicon-wrench'>
+							</span>Админ</a></li>";
+					}
+				?>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         

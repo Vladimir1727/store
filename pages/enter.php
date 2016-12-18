@@ -18,15 +18,17 @@ if (isset($_SESSION['reg'])){
 else{
 	echo $enterform;
 }
-
+ 
 if (isset($_POST['exit'])) {
 	unset($_SESSION['reg']);
+	echo "<script>document.location='index.php'</script>";
 }
 
 if (isset($_POST['enter'])) {
 	$ps=$pdo->prepare('select * from customers where login=? and pass=?');
-	//$_SESSION['reg']=$_POST['pass0'];
 	$ps->execute(array($_POST['login0'],$_POST['pass0']));
 	$row=$ps->fetch(PDO::FETCH_LAZY);
 	$_SESSION['reg']=$row['login'];
+	if ($row['roleid']==1) $_SESSION['role']="admin";
+	echo "<script>document.location='index.php'</script>";
 }
